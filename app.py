@@ -14,10 +14,10 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA (editar aquí si algo cambia)
 # =========================================================
-LOGO_PATH = "logo.jpg"
+LOGO_PATH = "logo.jpeg"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
-PERFIL_PATH = "vidal_urrego.jpg"
+PERFIL_PATH = "vidal_urrego.jpeg"
 PERFIL_FALLBACK_URL = "https://placehold.co/400x400/1E3A8A/FFFFFF?text=V.U.&font=raleway"
 
 NOMBRE = "Vidal Urrego Silva"
