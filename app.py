@@ -14,7 +14,7 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA (editar aquí si algo cambia)
 # =========================================================
-LOGO_PATH = "logo.jpeg"
+LOGO_PATH = "logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
 PERFIL_PATH = "vidal_urrego.jpeg"
@@ -201,9 +201,9 @@ def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_wi
 
 
 # =========================================================
-# 1. IDENTIDAD DE MARCA — LOGO (Haciendo el logo más pequeño usando columnas [2, 4, 2])
+# 1. IDENTIDAD DE MARCA — LOGO (Reducido de tamaño drásticamente con [3.2, 1.6, 3.2])
 # =========================================================
-col_l1, col_l2, col_l3 = st.columns([2, 4, 2])
+col_l1, col_l2, col_l3 = st.columns([3.2, 1.6, 3.2])
 with col_l2:
     mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo SAS")
 
