@@ -15,7 +15,7 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA
 # =========================================================
-LOGO_PATH = "logo.jpeg"
+LOGO_PATH = "logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
 PERFIL_PATH = "vidal_urrego.jpeg"
@@ -37,7 +37,7 @@ TEL_LINK = "+576013001431"
 DIRECCION = "Carrera 97 No. 24 C - 23 Bodega 10, Muelle Industrial 1 - Bogotá, Colombia"
 
 # =========================================================
-# ESTILOS (CSS mínimo: colores, tipografía, ocultar chrome de Streamlit)
+# ESTILOS (CSS mínimo con Degradado Diagonal Corporativo)
 # =========================================================
 st.markdown(
     """
@@ -51,9 +51,9 @@ st.markdown(
     div[data-testid="stStatusWidget"] {display: none;}
     .stAppDeployButton {display: none;}
 
-    /* ---- Fondo corporativo azul oscuro / azul rey ---- */
+    /* ---- Fondo corporativo dinámico con degradado lineal elegante ---- */
     .stApp {
-        background-color: #0A1F44;
+        background: linear-gradient(135deg, #07142b 0%, #0c234b 50%, #15356b 100%) !important;
     }
 
     /* ---- Layout tipo tarjeta, cómodo en celular ---- */
@@ -170,6 +170,13 @@ st.markdown(
     div.stLinkButton > a {
         border-radius: 8px !important;
         font-weight: 600 !important;
+        background-color: rgba(255,255,255,0.08) !important;
+        color: #FFFFFF !important;
+        border: 1px solid rgba(255,255,255,0.2) !important;
+    }
+    div.stLinkButton > a:hover {
+        background-color: rgba(255,255,255,0.15) !important;
+        border-color: rgba(255,255,255,0.4) !important;
     }
     </style>
     """,
