@@ -70,7 +70,17 @@ st.markdown(
         font-size: 15.5px;
     }
 
-    /* ---- Foto de perfil circular y elegante (Agrandada a 290px para impacto total) ---- */
+    /* ---- Contenedor para centrar la foto de perfil en cualquier pantalla ---- */
+    .pc-perfil-wrap {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* ---- Foto de perfil circular y elegante (Centrado absoluto forzado) ---- */
     .pc-perfil-wrap img {
         width: 290px !important;
         height: 290px !important;
@@ -78,8 +88,9 @@ st.markdown(
         border-radius: 50%;
         border: 4px solid #E5E7EB;
         box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-        display: block;
-        margin: 0 auto;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     /* ---- Bloques de texto centrados (nombre, cargo, tagline) ---- */
@@ -95,7 +106,7 @@ st.markdown(
         color: #D8DEE9;
         font-size: 17px;
         font-weight: 500;
-        margin: 2px 0 10px 0; /* Agregado un margen inferior para separar del logo */
+        margin: 2px 0 10px 0;
     }
     .pc-tagline {
         text-align: center;
@@ -194,7 +205,7 @@ def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_wi
 # =========================================================
 # 1. FOTO DE PERFIL — DE PRIMERAS EN LA CABECERA (Centrada e Imponente)
 # =========================================================
-st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%; margin-top: 10px;">', unsafe_allow_html=True)
+st.markdown('<div class="pc-perfil-wrap">', unsafe_allow_html=True)
 mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=290, texto_marcador="V. Urrego")
 st.markdown("</div>", unsafe_allow_html=True)
 
