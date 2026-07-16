@@ -14,7 +14,7 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA (editar aquí si algo cambia)
 # =========================================================
-LOGO_PATH = "logo.jpeg"
+LOGO_PATH = "logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
 PERFIL_PATH = "vidal_urrego.jpeg"
@@ -71,10 +71,10 @@ st.markdown(
         font-size: 15.5px;
     }
 
-    /* ---- Foto de perfil circular y elegante (Agrandada a 240px) ---- */
+    /* ---- Foto de perfil circular y elegante (Agrandada a 290px para impacto total) ---- */
     .pc-perfil-wrap img {
-        width: 240px !important;
-        height: 240px !important;
+        width: 290px !important;
+        height: 290px !important;
         object-fit: cover;
         border-radius: 50%;
         border: 4px solid #E5E7EB;
@@ -201,19 +201,19 @@ def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_wi
 
 
 # =========================================================
-# 1. IDENTIDAD DE MARCA — LOGO (Reducido de tamaño drásticamente con [3.2, 1.6, 3.2])
+# 1. IDENTIDAD DE MARCA — LOGO (Reducido drásticamente con columnas [3.6, 0.8, 3.6])
 # =========================================================
-col_l1, col_l2, col_l3 = st.columns([3.2, 1.6, 3.2])
+col_l1, col_l2, col_l3 = st.columns([3.6, 0.8, 3.6])
 with col_l2:
     mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo SAS")
 
 st.write("")
 
 # =========================================================
-# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo y agrandada a width=240)
+# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo y agrandada a width=290)
 # =========================================================
 st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%;">', unsafe_allow_html=True)
-mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=240, texto_marcador="V. Urrego")
+mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=290, texto_marcador="V. Urrego")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # =========================================================
@@ -232,7 +232,7 @@ st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True
 
 st.markdown(
     """
-    <p class="pc-servicios">📦 Paqueteo  ·  🚚 Mensajería  ·  ⚙️ Operaciones Especiales</p>
+    <p class="pc-servicios">📦 Paqueteo &nbsp;·&nbsp; 🚚 Mensajería &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
     """,
     unsafe_allow_html=True,
 )
@@ -250,10 +250,10 @@ st.divider()
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
-st.markdown(f"📧  [{EMAIL}](mailto:{EMAIL})")
-st.markdown(f"📱  Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
-st.markdown(f"☎️  Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
-st.markdown("🏙️  Bogotá - Colombia")
+st.markdown(f"📧&nbsp;&nbsp;[{EMAIL}](mailto:{EMAIL})")
+st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
+st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
+st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
 
 st.write("")
 
