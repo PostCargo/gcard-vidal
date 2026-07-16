@@ -71,10 +71,10 @@ st.markdown(
         font-size: 15.5px;
     }
 
-    /* ---- Foto de perfil circular y elegante ---- */
+    /* ---- Foto de perfil circular y elegante (Agrandada a 240px) ---- */
     .pc-perfil-wrap img {
-        width: 190px !important;
-        height: 190px !important;
+        width: 240px !important;
+        height: 240px !important;
         object-fit: cover;
         border-radius: 50%;
         border: 4px solid #E5E7EB;
@@ -210,10 +210,10 @@ with col_l2:
 st.write("")
 
 # =========================================================
-# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo)
+# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo y agrandada a width=240)
 # =========================================================
 st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%;">', unsafe_allow_html=True)
-mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=190, texto_marcador="V. Urrego")
+mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=240, texto_marcador="V. Urrego")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # =========================================================
@@ -232,7 +232,7 @@ st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True
 
 st.markdown(
     """
-    <p class="pc-servicios">📦 Paqueteo &nbsp;·&nbsp; 🚚 Mensajería &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
+    <p class="pc-servicios">📦 Paqueteo  ·  🚚 Mensajería  ·  ⚙️ Operaciones Especiales</p>
     """,
     unsafe_allow_html=True,
 )
@@ -250,10 +250,10 @@ st.divider()
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
-st.markdown(f"📧&nbsp;&nbsp;[{EMAIL}](mailto:{EMAIL})")
-st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
-st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
-st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
+st.markdown(f"📧  [{EMAIL}](mailto:{EMAIL})")
+st.markdown(f"📱  Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
+st.markdown(f"☎️  Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
+st.markdown("🏙️  Bogotá - Colombia")
 
 st.write("")
 
