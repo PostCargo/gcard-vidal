@@ -15,7 +15,7 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA
 # =========================================================
-LOGO_PATH = "logo.png"
+LOGO_PATH = "logo.jpeg"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
 PERFIL_PATH = "vidal_urrego.jpeg"
