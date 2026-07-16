@@ -2,16 +2,15 @@ import streamlit as st
 import base64
 import os
 
+# Configuración de página expandida para lograr el Layout 50/50 horizontal
 st.set_page_config(
-    page_title="Vidal Urrego | PostCargo SAS",
+    page_title="Vidal Urrego Silva | PostCargo",
     page_icon="📇",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
-# ---------------------------------------------------------
-# Manejo robusto de imágenes (fallback si no existen o fallan)
-# ---------------------------------------------------------
+# --- MANEJO ROBUSTO DE IMÁGENES ---
 def get_base64_image(image_path):
     try:
         if os.path.exists(image_path):
@@ -24,35 +23,23 @@ def get_base64_image(image_path):
 logo_b64 = get_base64_image("logo.png")
 foto_b64 = get_base64_image("vidal_urrego.png")
 
-if foto_b64:
-    foto_html = f'<img src="data:image/png;base64,{foto_b64}" class="profile-photo">'
-else:
-    foto_html = '<div class="profile-photo photo-fallback">VU</div>'
+# Urls de respaldo por si el hosting de la nube tiene problemas con las rutas
+logo_src = f"data:image/png;base64,{logo_b64}" if logo_b64 else "https://www.postcargo.co/wp-content/uploads/2021/07/logo-postcargo.png"
+foto_src = f"data:image/png;base64,{foto_b64}" if foto_b64 else "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
 
-if logo_b64:
-    logo_html = f'<img src="data:image/png;base64,{logo_b64}" class="company-logo">'
-else:
-    logo_html = '<div class="logo-fallback">PostCargo SAS</div>'
-
-# ---------------------------------------------------------
-# CSS Global
-# ---------------------------------------------------------
+# --- INYECCIÓN DE ESTILOS CSS GENERALES ---
 st.markdown("""
     <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        div[data-testid="stToolbar"] {visibility: hidden;}
-        div[data-testid="stDecoration"] {visibility: hidden;}
-        div[data-testid="stStatusWidget"] {visibility: hidden;}
-        div[data-testid="stSidebarCollapsedControl"] {visibility: hidden;}
-
-        html, body, [class*="css"] {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        /* Ocultar elementos nativos de Streamlit */
+        #MainMenu, footer, header, div[data-testid="stToolbar"], 
+        div[data-testid="stDecoration"], div[data-testid="stStatusWidget"],
+        div[data-testid="stSidebarCollapsedControl"] {
+            visibility: hidden; display: none !important;
         }
 
-        .stApp {
-            background: #ffffff;
+        html, body, [class*="css"] {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #ffffff;
         }
 
         .block-container {
@@ -61,19 +48,19 @@ st.markdown("""
             max-width: 100% !important;
         }
 
-        /* -------------------- CONTENEDOR SPLIT 50/50 -------------------- */
+        /* CONTENEDOR SPLIT HORIZONTAL 50/50 */
         .split-container {
             display: flex;
-            width: 100%;
+            width: 100vw;
             min-height: 100vh;
         }
 
-        /* -------------------- MITAD IZQUIERDA (PERSONAL) -------------------- */
+        /* MITAD IZQUIERDA: DON VIDAL (FONDO BLANCO) */
         .left-panel {
             flex: 1;
             background: #ffffff;
             color: #10193a;
-            padding: 60px 40px;
+            padding: 60px 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -82,77 +69,61 @@ st.markdown("""
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #e2e6f0;
+            border: 3px solid #0f2557;
             box-shadow: 0 6px 20px rgba(15, 37, 87, 0.15);
-            margin-bottom: 22px;
-        }
-
-        .photo-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0f2557;
-            color: #ffffff;
-            font-size: 44px;
-            font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .exec-name {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
             color: #0f2557;
-            letter-spacing: 0.3px;
             margin-bottom: 4px;
         }
 
         .exec-role {
-            font-size: 15.5px;
+            font-size: 16px;
             font-weight: 500;
             color: #5b6c8f;
-            margin-bottom: 26px;
+            margin-bottom: 30px;
         }
 
         .contact-list {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             text-align: left;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 4px;
-            color: #24304f;
-            text-decoration: none;
-            font-size: 14.5px;
+            gap: 12px;
+            padding: 12px 4px;
+            color: #24304f !important;
+            text-decoration: none !important;
+            font-size: 15px;
             border-bottom: 1px solid #eef1f7;
-            transition: opacity 0.15s ease;
+            transition: color 0.15s ease;
         }
 
         .contact-item:hover {
-            opacity: 0.7;
-        }
-
-        .contact-icon {
-            font-size: 16px;
-            width: 20px;
-            text-align: center;
+            color: #0f2557 !important;
+            font-weight: 500;
         }
 
         .address-link {
             display: block;
-            margin-top: 14px;
-            padding: 14px 16px;
+            margin-top: 18px;
+            padding: 16px;
             background: #f4f6fb;
             border-radius: 12px;
-            color: #24304f;
-            text-decoration: none;
-            font-size: 13.5px;
+            color: #24304f !important;
+            text-decoration: none !important;
+            font-size: 14px;
             line-height: 1.5;
             border: 1px solid #e6eaf3;
             transition: background 0.15s ease;
@@ -165,16 +136,15 @@ st.markdown("""
         .address-link strong {
             display: block;
             color: #0f2557;
-            font-size: 13px;
             margin-bottom: 4px;
         }
 
-        /* -------------------- MITAD DERECHA (EMPRESA) -------------------- */
+        /* MITAD DERECHA: EMPRESA (FONDO AZUL REY) */
         .right-panel {
             flex: 1;
             background: linear-gradient(160deg, #0a1a3f 0%, #0f2557 45%, #16326e 100%);
             color: #ffffff;
-            padding: 60px 40px;
+            padding: 60px 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -183,149 +153,127 @@ st.markdown("""
         }
 
         .company-logo {
-            max-width: 260px;
-            width: 85%;
+            max-width: 280px;
+            width: 90%;
             height: auto;
-            margin-bottom: 14px;
-            filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
-        }
-
-        .logo-fallback {
-            font-size: 30px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 1px;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
         }
 
         .tagline {
-            font-size: 14.5px;
+            font-size: 16px;
             color: #c3d0ee;
             font-weight: 500;
-            margin-bottom: 28px;
-            max-width: 280px;
-            line-height: 1.5;
+            margin-bottom: 30px;
+            max-width: 320px;
+            line-height: 1.4;
         }
 
         .services-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 30px 0;
+            margin: 0 0 35px 0;
             text-align: left;
         }
 
         .services-list li {
-            font-size: 15px;
+            font-size: 15.5px;
             color: #ffffff;
-            padding: 7px 0;
+            padding: 6px 0;
             font-weight: 500;
-            letter-spacing: 0.2px;
         }
 
+        /* Botón Estilizado Fino para el Video */
         .video-btn {
             display: inline-block;
-            padding: 12px 26px;
-            border-top: 1px solid rgba(255,255,255,0.5);
-            border-bottom: 1px solid rgba(255,255,255,0.5);
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 13.5px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            margin-bottom: 34px;
-            transition: background 0.2s ease;
+            padding: 12px 28px;
+            background: #ffffff;
+            color: #0f2557 !important;
+            border-radius: 8px;
+            text-decoration: none !important;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-bottom: 35px;
+            transition: transform 0.2s;
         }
 
-        .video-btn:hover {
-            background: rgba(255, 255, 255, 0.08);
+        .video-btn:active {
+            transform: scale(0.97);
         }
 
         .company-footer {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #9fb3d9;
             line-height: 1.6;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 15px;
+            width: 80%;
+            max-width: 300px;
         }
 
         .company-footer a {
-            color: #d8e2f7;
-            text-decoration: none;
+            color: #ffffff !important;
+            text-decoration: none !important;
             font-weight: 600;
         }
 
-        .company-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* -------------------- RESPONSIVE MOBILE-FIRST -------------------- */
+        /* RESPONSIVE: APILADO EN CELULARES */
         @media (max-width: 768px) {
             .split-container {
                 flex-direction: column;
                 min-height: unset;
             }
-
             .right-panel {
                 order: 1;
-                padding: 40px 24px 34px 24px;
+                padding: 50px 25px 40px 25px;
             }
-
             .left-panel {
                 order: 2;
-                padding: 40px 24px 50px 24px;
+                padding: 40px 25px 50px 25px;
             }
-
             .company-logo {
-                max-width: 210px;
-            }
-
-            .profile-photo, .photo-fallback {
-                width: 120px;
-                height: 120px;
-            }
-
-            .contact-list, .address-link {
-                max-width: 100%;
+                max-width: 240px;
             }
         }
     </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# Estructura HTML (Split 50/50)
-# ---------------------------------------------------------
+# --- RENDERIZADO DEL CONTENIDO HTML ---
 st.markdown(f"""
     <div class="split-container">
 
-        <!-- ===================== MITAD IZQUIERDA: PERSONAL ===================== -->
+        <!-- LADO IZQUIERDO: SECCIÓN PERSONAL (DON VIDAL) -->
         <div class="left-panel">
-            {foto_html}
+            <img src="{foto_src}" class="profile-photo" alt="Vidal Urrego Silva">
             <div class="exec-name">Vidal Urrego Silva</div>
             <div class="exec-role">Gerente General</div>
 
             <div class="contact-list">
                 <a href="mailto:vidal.urrego@postcargo.co?subject=Contacto%20Desde%20Tarjeta%20Digital" class="contact-item">
-                    <span class="contact-icon">✉️</span> vidal.urrego@postcargo.co
+                    ✉️ {sidebar_context.get('correo_vidal', 'vidal.urrego@postcargo.co')}
                 </a>
                 <a href="tel:+573115653897" class="contact-item">
-                    <span class="contact-icon">📱</span> Cel: 311 565 3897
+                    📱 Cel: 311 565 3897
                 </a>
                 <a href="tel:+576013001431" class="contact-item">
-                    <span class="contact-icon">☎️</span> Tel: (601) 300 1431
+                    ☎️ Tel: (601) 300 1431
                 </a>
                 <div class="contact-item" style="border-bottom: none;">
-                    <span class="contact-icon">📍</span> Bogotá - Colombia
+                    📍 Bogotá - Colombia
                 </div>
 
                 <a href="https://maps.app.goo.gl/ASSDb6szm8FLSJfZ7" target="_blank" class="address-link">
-                    <strong>Dirección Principal</strong>
+                    <strong>📍 Dirección Principal</strong>
                     Carrera 97 No. 24 C – 23 Bodega 10<br>
                     Muelle Industrial 1 - Bogotá – Colombia
                 </a>
             </div>
         </div>
 
-        <!-- ===================== MITAD DERECHA: EMPRESA ===================== -->
+        <!-- LADO DERECHO: SECCIÓN CORPORATIVA (POSTCARGO) -->
         <div class="right-panel">
-            {logo_html}
+            <img src="{logo_src}" class="company-logo" alt="PostCargo">
             <div class="tagline">Operador Logístico Especializado en Reexpediciones</div>
 
             <ul class="services-list">
