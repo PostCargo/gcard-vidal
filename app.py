@@ -201,18 +201,18 @@ def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_wi
 
 
 # =========================================================
-# 1. IDENTIDAD DE MARCA — LOGO
+# 1. IDENTIDAD DE MARCA — LOGO (Haciendo el logo más pequeño usando columnas [2, 4, 2])
 # =========================================================
-col_l1, col_l2, col_l3 = st.columns([1, 6, 1])
+col_l1, col_l2, col_l3 = st.columns([2, 4, 2])
 with col_l2:
     mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo SAS")
 
 st.write("")
 
 # =========================================================
-# 1B. FOTO DE PERFIL (circular)
+# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo)
 # =========================================================
-st.markdown('<div class="pc-perfil-wrap">', unsafe_allow_html=True)
+st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%;">', unsafe_allow_html=True)
 mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=190, texto_marcador="V. Urrego")
 st.markdown("</div>", unsafe_allow_html=True)
 
