@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 import os
 
 # =========================================================
@@ -12,7 +13,7 @@ st.set_page_config(
 )
 
 # =========================================================
-# DATOS DE LA TARJETA (editar aquí si algo cambia)
+# DATOS DE LA TARJETA
 # =========================================================
 LOGO_PATH = "logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
@@ -70,30 +71,45 @@ st.markdown(
         font-size: 15.5px;
     }
 
-    /* ---- Contenedor para centrar la foto de perfil en cualquier pantalla ---- */
+    /* ---- Contenedor para centrar la foto de perfil ---- */
     .pc-perfil-wrap {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
     }
 
-    /* ---- Foto de perfil circular y elegante (Centrado absoluto forzado) ---- */
+    /* ---- Foto de perfil circular y centrada ---- */
     .pc-perfil-wrap img {
-        width: 290px !important;
-        height: 290px !important;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 4px solid #E5E7EB;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+        width: 260px !important;
+        height: 260px !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        border: 4px solid #E5E7EB !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
         display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
     }
 
-    /* ---- Bloques de texto centrados (nombre, cargo, tagline) ---- */
+    /* ---- Contenedor para centrar el logo corporativo ---- */
+    .pc-logo-wrap {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* ---- Logo corporativo súper pequeño ---- */
+    .pc-logo-wrap img {
+        max-width: 90px !important;
+        height: auto !important;
+        display: block !important;
+    }
+
+    /* ---- Bloques de texto centrados ---- */
     .pc-nombre {
         text-align: center;
         color: #FFFFFF;
@@ -133,13 +149,6 @@ st.markdown(
         font-weight: 700;
         margin-bottom: 8px;
     }
-    .pc-cobertura {
-        text-align: center;
-        color: #FFFFFF;
-        font-weight: 600;
-        font-size: 15px;
-        margin: 0;
-    }
     .pc-footer-note {
         text-align: center;
         color: #6B7A99;
@@ -147,7 +156,7 @@ st.markdown(
         margin-top: 12px;
     }
 
-    /* ---- Enlaces de texto (correo, teléfono) ---- */
+    /* ---- Enlaces de texto ---- */
     a {
         color: #9DC6FF !important;
         text-decoration: none !important;
@@ -157,7 +166,7 @@ st.markdown(
         color: #FFFFFF !important;
     }
 
-    /* ---- Botones nativos (st.link_button) ---- */
+    /* ---- Botones ---- */
     div.stLinkButton > a {
         border-radius: 8px !important;
         font-weight: 600 !important;
@@ -169,45 +178,43 @@ st.markdown(
 
 
 # =========================================================
-# FUNCIÓN AUXILIAR: carga segura de imágenes con respaldo
+# FUNCIÓN AUXILIAR: Obtiene la ruta de imagen o base64
 # =========================================================
-def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_width=False, texto_marcador="PostCargo"):
+def obtener_src_imagen(ruta_local, url_respaldo):
     """
-    Intenta mostrar una imagen local. Si no existe o falla,
-    usa una imagen de respaldo desde internet. Si eso también
-    falla (por ejemplo, sin conexión), muestra un marcador
-    visual elegante para que la página nunca se vea rota.
+    Intenta leer el archivo local y codificarlo en Base64 para cargarlo de forma
+    segura y rápida sin depender de rutas rotas en el servidor.
+    Si falla, retorna la URL de respaldo.
     """
     try:
         if os.path.exists(ruta_local):
-            st.image(ruta_local, width=width, use_container_width=use_container_width)
-            return
+            with open(ruta_local, "rb") as f:
+                data = base64.b64encode(f.read()).decode()
+            extension = ruta_local.split(".")[-1].lower()
+            mime_type = "image/jpeg" if extension in ["jpg", "jpeg"] else "image/png"
+            return f"data:{mime_type};base64,{data}"
     except Exception:
         pass
+    return url_respaldo
 
-    try:
-        st.image(url_respaldo, width=width, use_container_width=use_container_width)
-        return
-    except Exception:
-        pass
 
-    st.markdown(
-        f"""
-        <div style="background-color:#1E3A8A; color:#FFFFFF; text-align:center;
-        padding:40px 20px; border-radius:14px; font-weight:700; font-size:18px;">
-        {texto_marcador}
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+# --- Cargar imágenes en memoria ---
+foto_src = obtener_src_imagen(PERFIL_PATH, PERFIL_FALLBACK_URL)
+logo_src = obtener_src_imagen(LOGO_PATH, LOGO_FALLBACK_URL)
 
 
 # =========================================================
-# 1. FOTO DE PERFIL — DE PRIMERAS EN LA CABECERA (Centrada e Imponente)
+# 1. FOTO DE PERFIL — CABECERA (Centrado Absoluto Asegurado)
 # =========================================================
-st.markdown('<div class="pc-perfil-wrap">', unsafe_allow_html=True)
-mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=290, texto_marcador="V. Urrego")
-st.markdown("</div>", unsafe_allow_html=True)
+st.markdown(
+    f"""
+    <div class="pc-perfil-wrap">
+        <img src="{foto_src}" alt="Vidal Urrego Silva">
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 # =========================================================
 # 2. INFORMACIÓN DE DON VIDAL & LOGO DEBAJO DE SU CARGO
@@ -215,10 +222,15 @@ st.markdown("</div>", unsafe_allow_html=True)
 st.markdown(f"<p class='pc-nombre'>{NOMBRE}</p>", unsafe_allow_html=True)
 st.markdown(f"<p class='pc-cargo'>{CARGO}</p>", unsafe_allow_html=True)
 
-# Logo súper pequeño colocado de forma simétrica justo abajo de "Gerente General"
-col_l1, col_l2, col_l3 = st.columns([3.6, 0.8, 3.6])
-with col_l2:
-    mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo")
+# Logo corporativo súper pequeño y perfectamente centrado abajo de "Gerente General"
+st.markdown(
+    f"""
+    <div class="pc-logo-wrap">
+        <img src="{logo_src}" alt="PostCargo">
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.divider()
 
