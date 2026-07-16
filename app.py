@@ -14,7 +14,7 @@ st.set_page_config(
 # =========================================================
 # DATOS DE LA TARJETA (editar aquí si algo cambia)
 # =========================================================
-LOGO_PATH = "logo.jpeg"
+LOGO_PATH = "logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
 PERFIL_PATH = "vidal_urrego.jpeg"
@@ -22,7 +22,6 @@ PERFIL_FALLBACK_URL = "https://placehold.co/400x400/1E3A8A/FFFFFF?text=V.U.&font
 
 NOMBRE = "Vidal Urrego Silva"
 CARGO = "Gerente General"
-EMPRESA = "PostCargo SAS"
 TAGLINE = "Operador Logístico Especializado en Reexpediciones"
 
 VIDEO_URL = "https://drive.google.com/file/d/171UVVbs3kwxcek2YbAPnChCXT5H4LezN/view?usp=sharing"
@@ -96,15 +95,7 @@ st.markdown(
         color: #D8DEE9;
         font-size: 17px;
         font-weight: 500;
-        margin: 2px 0 0 0;
-    }
-    .pc-empresa {
-        text-align: center;
-        color: #93A5C4;
-        font-size: 14px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin: 4px 0 0 0;
+        margin: 2px 0 10px 0; /* Agregado un margen inferior para separar del logo */
     }
     .pc-tagline {
         text-align: center;
@@ -201,27 +192,22 @@ def mostrar_imagen_segura(ruta_local, url_respaldo, width=None, use_container_wi
 
 
 # =========================================================
-# 1. IDENTIDAD DE MARCA — LOGO (Reducido drásticamente con columnas [3.6, 0.8, 3.6])
+# 1. FOTO DE PERFIL — DE PRIMERAS EN LA CABECERA (Centrada e Imponente)
 # =========================================================
-col_l1, col_l2, col_l3 = st.columns([3.6, 0.8, 3.6])
-with col_l2:
-    mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo SAS")
-
-st.write("")
-
-# =========================================================
-# 1B. FOTO DE PERFIL (Centrada perfectamente debajo del logo y agrandada a width=290)
-# =========================================================
-st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%;">', unsafe_allow_html=True)
+st.markdown('<div class="pc-perfil-wrap" style="display: flex; justify-content: center; width: 100%; margin-top: 10px;">', unsafe_allow_html=True)
 mostrar_imagen_segura(PERFIL_PATH, PERFIL_FALLBACK_URL, width=290, texto_marcador="V. Urrego")
 st.markdown("</div>", unsafe_allow_html=True)
 
 # =========================================================
-# 2. INFORMACIÓN DE DON VIDAL
+# 2. INFORMACIÓN DE DON VIDAL & LOGO DEBAJO DE SU CARGO
 # =========================================================
 st.markdown(f"<p class='pc-nombre'>{NOMBRE}</p>", unsafe_allow_html=True)
 st.markdown(f"<p class='pc-cargo'>{CARGO}</p>", unsafe_allow_html=True)
-st.markdown(f"<p class='pc-empresa'>{EMPRESA}</p>", unsafe_allow_html=True)
+
+# Logo súper pequeño colocado de forma simétrica justo abajo de "Gerente General"
+col_l1, col_l2, col_l3 = st.columns([3.6, 0.8, 3.6])
+with col_l2:
+    mostrar_imagen_segura(LOGO_PATH, LOGO_FALLBACK_URL, use_container_width=True, texto_marcador="PostCargo")
 
 st.divider()
 
