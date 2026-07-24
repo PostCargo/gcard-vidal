@@ -32,7 +32,7 @@ WEB_URL = "https://www.postcargo.co"
 EMAIL = "vidal.urrego@postcargo.co"
 CEL_TEXTO = "311 565 3897"
 CEL_LINK = "+573115653897"
-TEL_TEXTO = "805 2591"
+TEL_TEXTO = "(601)805 2591"
 TEL_LINK = "+576013001431"
 DIRECCION = "Carrera 97 No. 24 C - 23 Bodega 10, Muelle Industrial 1 - Bogotá, Colombia"
 
