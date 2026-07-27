@@ -150,36 +150,61 @@ st.markdown(
     }
 
     /* =========================================================
-       FORZADO DE BOTONES BLANCOS CON TEXTO AZUL OSCURO
+       1. BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
+       Grandes, Blanco sólido, texto Azul Oscuro
        ========================================================= */
-    div[data-testid="stLinkButton"] a,
-    div[data-testid="stLinkButton"] button,
-    .stLinkButton a {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a {
         background-color: #FFFFFF !important;
         background: #FFFFFF !important;
         color: #07142b !important;
         border: 2px solid #FFFFFF !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
+        font-size: 18px !important;            /* Letra más grande */
         font-weight: 700 !important;
-        padding: 0.75rem 1rem !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+        padding: 0.95rem 1.2rem !important;     /* Botones más grandes */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
         transition: all 0.2s ease-in-out !important;
     }
 
-    /* Cambia todos los textos e iconos dentro del botón a azul oscuro */
-    div[data-testid="stLinkButton"] a *,
-    div[data-testid="stLinkButton"] button * {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a * {
         color: #07142b !important;
-        fill: #07142b !important;
+        font-size: 18px !important;
     }
 
-    /* Estado Hover / Al pasar el mouse o tocar en móvil */
-    div[data-testid="stLinkButton"] a:hover,
-    div[data-testid="stLinkButton"] button:hover {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a:hover {
         background-color: #E2E8F0 !important;
         background: #E2E8F0 !important;
         border-color: #E2E8F0 !important;
         color: #0A1F44 !important;
+    }
+
+    /* =========================================================
+       2. BOTONES SECUNDARIOS (WEB Y DIRECCIÓN)
+       Fondo Integrado / Transparente similar al fondo principal
+       ========================================================= */
+    .pc-btn-secundario div[data-testid="stLinkButton"] a {
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #EDEFF4 !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        border-radius: 8px !important;
+        font-size: 14.5px !important;
+        font-weight: 500 !important;
+        padding: 0.7rem 1rem !important;
+        box-shadow: none !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    .pc-btn-secundario div[data-testid="stLinkButton"] a * {
+        color: #EDEFF4 !important;
+        font-size: 14.5px !important;
+    }
+
+    .pc-btn-secundario div[data-testid="stLinkButton"] a:hover {
+        background-color: rgba(255, 255, 255, 0.18) !important;
+        background: rgba(255, 255, 255, 0.18) !important;
+        border-color: rgba(255, 255, 255, 0.45) !important;
+        color: #FFFFFF !important;
     }
     </style>
     """,
@@ -224,13 +249,17 @@ st.divider()
 # =========================================================
 # 2. BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
 # =========================================================
-# Botón Principal: Negocios
+# Botón Principal: Negocios (Blanco, Grande)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
 st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
-# Botón Secundario: Presentación Corporativa
+# Botón Secundario: Presentación Corporativa (Blanco, Grande)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
 st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
@@ -263,10 +292,17 @@ st.markdown(
 
 st.write("")
 
+# Botón WEB (Del color de fondo)
+st.markdown('<div class="pc-btn-secundario">', unsafe_allow_html=True)
 st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
 st.write("")
 
+# Botón DIRECCIÓN (Del color de fondo)
+st.markdown('<div class="pc-btn-secundario">', unsafe_allow_html=True)
 st.link_button(f"📍 {DIRECCION}", MAPS_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.divider()
 
