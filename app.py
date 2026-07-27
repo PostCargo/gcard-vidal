@@ -266,7 +266,7 @@ st.divider()
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
-st.markdown(f"📧&nbsp;&nbsp;E-Mail[{EMAIL}](mailto:{EMAIL})")
+st.markdown(f"📧&nbsp;&nbsp;E-Mail: [{EMAIL}](mailto:{EMAIL})")
 st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
 st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
 st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
