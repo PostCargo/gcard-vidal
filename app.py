@@ -249,7 +249,7 @@ st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True
 
 st.markdown(
     """
-    <p class="pc-servicios">📦 Paqueteo de Trayecto Especial &nbsp;·&nbsp; ⚙️ Operaciones Especiales &nbsp;·&nbsp; 🚚 Ultima milla regional</p>
+    <p class="pc-servicios">📦 Paqueteo de Trayecto Especial &nbsp;·&nbsp; ⚙️ Operaciones Especiales &nbsp;·&nbsp; 🚚 Ultima Milla Regional</p>
     """,
     unsafe_allow_html=True,
 )
