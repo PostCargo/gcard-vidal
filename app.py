@@ -248,7 +248,7 @@ st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True
 
 st.markdown(
     """
-    <p class="pc-servicios">📦 Paqueteo &nbsp;·&nbsp; 🚚 Mensajería &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
+    <p class="pc-servicios">📦 Paqueteo de Trayecto Espacial &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
     """,
     unsafe_allow_html=True,
 )
@@ -257,7 +257,7 @@ st.write("")
 
 col_v1, col_v2, col_v3 = st.columns([1, 4, 1])
 with col_v2:
-    st.link_button("🎥 Más Información (Video)", VIDEO_URL, use_container_width=True)
+    st.link_button("🎥 Presentacion coorporativa", VIDEO_URL, use_container_width=True)
 
 st.divider()
 
@@ -270,7 +270,9 @@ st.markdown(f"📧&nbsp;&nbsp;[{EMAIL}](mailto:{EMAIL})")
 st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
 st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
 st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
-
+col_w1, col_w2, col_w3 = st.columns([1, 3, 1])
+with col_w2:
+    st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
 st.write("")
 
 st.link_button(f"📍 {DIRECCION}", MAPS_URL, use_container_width=True)
@@ -281,9 +283,5 @@ st.divider()
 # 5. CIERRE
 # =========================================================
 st.info("🌎 **Cobertura Nacional e Internacional**")
-
-col_w1, col_w2, col_w3 = st.columns([1, 3, 1])
-with col_w2:
-    st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
 
 st.markdown("<p class='pc-footer-note'>PostCargo SAS</p>", unsafe_allow_html=True)
