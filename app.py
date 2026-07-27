@@ -98,13 +98,13 @@ st.markdown(
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
     }
 
     /* ---- Logo corporativo súper pequeño ---- */
     .pc-logo-wrap img {
-        max-width: 170px !important;
+        max-width: 90px !important;
         height: auto !important;
         display: block !important;
     }
