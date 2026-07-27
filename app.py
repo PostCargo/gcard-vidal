@@ -122,16 +122,6 @@ st.markdown(
         margin: 8px 0;
     }
 
-    /* ---- Centrado de la caja st.info / Cobertura Nacional ---- */
-    div[data-testid="stAlert"] {
-        text-align: center !important;
-        justify-content: center !important;
-    }
-    div[data-testid="stAlert"] > div {
-        justify-content: center !important;
-        width: 100% !important;
-    }
-
     .pc-footer-note {
         text-align: center;
         color: #6B7A99;
@@ -150,32 +140,28 @@ st.markdown(
     }
 
     /* =========================================================
-       FORZADO DE BOTONES BLANCOS CON TEXTO AZUL OSCURO
+       BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
+       Grandes, Blanco sólido, texto Azul Oscuro
        ========================================================= */
-    div[data-testid="stLinkButton"] a,
-    div[data-testid="stLinkButton"] button,
-    .stLinkButton a {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a {
         background-color: #FFFFFF !important;
         background: #FFFFFF !important;
         color: #07142b !important;
         border: 2px solid #FFFFFF !important;
-        border-radius: 8px !important;
+        border-radius: 10px !important;
+        font-size: 18px !important;            /* Letra más grande */
         font-weight: 700 !important;
-        padding: 0.75rem 1rem !important;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+        padding: 0.95rem 1.2rem !important;     /* Botones más grandes */
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
         transition: all 0.2s ease-in-out !important;
     }
 
-    /* Cambia todos los textos e iconos dentro del botón a azul oscuro */
-    div[data-testid="stLinkButton"] a *,
-    div[data-testid="stLinkButton"] button * {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a * {
         color: #07142b !important;
-        fill: #07142b !important;
+        font-size: 18px !important;
     }
 
-    /* Estado Hover / Al pasar el mouse o tocar en móvil */
-    div[data-testid="stLinkButton"] a:hover,
-    div[data-testid="stLinkButton"] button:hover {
+    .pc-btn-destacado div[data-testid="stLinkButton"] a:hover {
         background-color: #E2E8F0 !important;
         background: #E2E8F0 !important;
         border-color: #E2E8F0 !important;
@@ -224,13 +210,17 @@ st.divider()
 # =========================================================
 # 2. BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
 # =========================================================
-# Botón Principal: Negocios
+# Botón Principal: Negocios (Blanco, Grande)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
 st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
-# Botón Secundario: Presentación Corporativa
+# Botón Secundario: Presentación Corporativa (Blanco, Grande)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
 st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
@@ -247,7 +237,7 @@ st.markdown(
 st.divider()
 
 # =========================================================
-# 3. DATOS DE CONTACTO
+# 3. DATOS DE CONTACTO (Todo integrado en texto)
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
@@ -257,22 +247,15 @@ st.markdown(
     <p class="pc-contact-item">📱&nbsp;&nbsp;Cel: <a href="tel:{CEL_LINK}">{CEL_TEXTO}</a></p>
     <p class="pc-contact-item">☎️&nbsp;&nbsp;Tel: <a href="tel:{TEL_LINK}">{TEL_TEXTO}</a></p>
     <p class="pc-contact-item">🏙️&nbsp;&nbsp;Bogotá - Colombia</p>
+    <p class="pc-contact-item">🌐&nbsp;&nbsp;Web: <a href="{WEB_URL}" target="_blank">www.postcargo.co</a></p>
+    <p class="pc-contact-item">📍&nbsp;&nbsp;Dirección: <a href="{MAPS_URL}" target="_blank">{DIRECCION}</a></p>
     """,
     unsafe_allow_html=True,
 )
-
-st.write("")
-
-st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
-st.write("")
-
-st.link_button(f"📍 {DIRECCION}", MAPS_URL, use_container_width=True)
 
 st.divider()
 
 # =========================================================
 # 4. CIERRE
 # =========================================================
-st.info("🌎 **Cobertura Nacional**")
-
 st.markdown("<p class='pc-footer-note'>PostCargo S.A.S</p>", unsafe_allow_html=True)
