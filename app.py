@@ -141,14 +141,26 @@ st.markdown(
         font-size: 14.5px;
         margin-top: 10px;
     }
+    
+    /* ---- Título de Sección Centrado ---- */
     .pc-section-title {
+        text-align: center;
         color: #93A5C4;
         text-transform: uppercase;
         letter-spacing: 1.2px;
         font-size: 13px;
         font-weight: 700;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
+
+    /* ---- Ítems de Contacto Centrados ---- */
+    .pc-contact-item {
+        text-align: center;
+        color: #EDEFF4;
+        font-size: 15.5px;
+        margin: 8px 0;
+    }
+
     .pc-footer-note {
         text-align: center;
         color: #6B7A99;
@@ -266,10 +278,15 @@ st.divider()
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
-st.markdown(f"📧&nbsp;&nbsp;E-Mail: [{EMAIL}](mailto:{EMAIL})")
-st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
-st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
-st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
+st.markdown(
+    f"""
+    <p class="pc-contact-item">📧&nbsp;&nbsp;E-Mail: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+    <p class="pc-contact-item">📱&nbsp;&nbsp;Cel: <a href="tel:{CEL_LINK}">{CEL_TEXTO}</a></p>
+    <p class="pc-contact-item">☎️&nbsp;&nbsp;Tel: <a href="tel:{TEL_LINK}">{TEL_TEXTO}</a></p>
+    <p class="pc-contact-item">🏙️&nbsp;&nbsp;Bogotá - Colombia</p>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ELIMINADAS LAS COLUMNAS PARA MANTENER LA SIMETRÍA VISUAL
 st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
