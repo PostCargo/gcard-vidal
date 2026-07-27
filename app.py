@@ -38,14 +38,23 @@ DIRECCION = "Carrera 97 No. 24 C - 23 Bodega 10, Muelle Industrial 1 - Bogotá, 
 st.markdown(
     """
     <style>
-    /* ---- Ocultar menú, footer y barra de herramientas de Streamlit ---- */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    div[data-testid="stToolbar"] {visibility: hidden; height: 0; position: fixed;}
-    div[data-testid="stDecoration"] {display: none;}
-    div[data-testid="stStatusWidget"] {display: none;}
-    .stAppDeployButton {display: none;}
+    /* ---- Ocultar menú, footer, avatar de cuenta y corona/badge de Streamlit Cloud ---- */
+    #MainMenu {visibility: hidden; display: none !important;}
+    footer {visibility: hidden; display: none !important;}
+    header {visibility: hidden; display: none !important;}
+    div[data-testid="stToolbar"] {visibility: hidden; height: 0; position: fixed; display: none !important;}
+    div[data-testid="stDecoration"] {display: none !important;}
+    div[data-testid="stStatusWidget"] {display: none !important;}
+    .stAppDeployButton {display: none !important;}
+    
+    /* Reglas específicas para ocultar el badge flotante inferior en móviles (cuenta y corona) */
+    [data-testid="stHeader"] {display: none !important;}
+    .viewerBadge_container__13233, 
+    .viewerBadge_link__1S137,
+    iframe[title="streamlit_badge"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
 
     /* ---- Fondo corporativo dinámico con degradado lineal elegante ---- */
     .stApp {
@@ -125,8 +134,8 @@ st.markdown(
     /* ---- Pie de página sutil (Gris claro y extra pequeño) ---- */
     .pc-footer-note {
         text-align: center;
-        color: #8C9BAE !important; /* Gris suave */
-        font-size: 9px !important;    /* Tamaño bastante reducido */
+        color: #8C9BAE !important;
+        font-size: 9px !important;
         margin-top: 20px;
         line-height: 1.3;
         opacity: 0.8;
