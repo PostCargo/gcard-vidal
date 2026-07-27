@@ -104,7 +104,7 @@ st.markdown(
 
     /* ---- Logo corporativo súper pequeño ---- */
     .pc-logo-wrap img {
-        max-width: 100px !important;
+        max-width: 170px !important;
         height: auto !important;
         display: block !important;
     }
