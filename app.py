@@ -97,7 +97,7 @@ st.markdown(
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        width: 100% !important;
+        width: 50% !important;
         margin-top: 5px;
         margin-bottom: 5px;
     }
