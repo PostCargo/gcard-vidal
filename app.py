@@ -173,6 +173,7 @@ st.markdown(
         background-color: rgba(255,255,255,0.08) !important;
         color: #FFFFFF !important;
         border: 1px solid rgba(255,255,255,0.2) !important;
+        padding: 0.75rem 1rem !important; /* Añadido un poco de espacio interno extra para botones más grandes */
     }
     div.stLinkButton > a:hover {
         background-color: rgba(255,255,255,0.15) !important;
@@ -255,9 +256,8 @@ st.markdown(
 
 st.write("")
 
-col_v1, col_v2, col_v3 = st.columns([1, 4, 1])
-with col_v2:
-    st.link_button("🎥 Presentacion coorporativa", VIDEO_URL, use_container_width=True)
+# ELIMINADAS LAS COLUMNAS PARA QUE EL BOTÓN OCUPE TODO EL ANCHO DISPONIBLE
+st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
 
 st.divider()
 
@@ -270,9 +270,9 @@ st.markdown(f"📧&nbsp;&nbsp;[{EMAIL}](mailto:{EMAIL})")
 st.markdown(f"📱&nbsp;&nbsp;Cel: [{CEL_TEXTO}](tel:{CEL_LINK})")
 st.markdown(f"☎️&nbsp;&nbsp;Tel: [{TEL_TEXTO}](tel:{TEL_LINK})")
 st.markdown("🏙️&nbsp;&nbsp;Bogotá - Colombia")
-col_w1, col_w2, col_w3 = st.columns([1, 3, 1])
-with col_w2:
-    st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
+
+# ELIMINADAS LAS COLUMNAS PARA MANTENER LA SIMETRÍA VISUAL
+st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
 st.write("")
 
 st.link_button(f"📍 {DIRECCION}", MAPS_URL, use_container_width=True)
