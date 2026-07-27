@@ -122,13 +122,14 @@ st.markdown(
         margin: 8px 0;
     }
 
-    /* ---- Pie de página discreto ---- */
+    /* ---- Pie de página sutil (Gris claro y extra pequeño) ---- */
     .pc-footer-note {
         text-align: center;
-        color: #6B7A99;
-        font-size: 10.5px;
-        margin-top: 18px;
-        line-height: 1.4;
+        color: #8C9BAE !important; /* Gris suave */
+        font-size: 9px !important;    /* Tamaño bastante reducido */
+        margin-top: 20px;
+        line-height: 1.3;
+        opacity: 0.8;
     }
 
     /* ---- Enlaces de texto ---- */
@@ -155,7 +156,7 @@ st.markdown(
         font-weight: 700 !important;
         padding: 0.85rem 1rem !important;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
-        font-size: 18px !important; /* Ajuste del tamaño de letra */
+        font-size: 18px !important;
         transition: all 0.2s ease-in-out !important;
     }
 
@@ -164,7 +165,7 @@ st.markdown(
     div[data-testid="stLinkButton"] button * {
         color: #07142b !important;
         fill: #07142b !important;
-        font-size: 18px !important; /* Ajuste del tamaño del texto e icono */
+        font-size: 18px !important;
     }
 
     /* Estado Hover / Al pasar el mouse o tocar en móvil */
