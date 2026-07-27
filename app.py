@@ -79,7 +79,7 @@ st.markdown(
 
     /* ---- Logo corporativo ampliado ---- */
     .pc-logo-wrap img {
-        max-width: 280px !important;
+        max-width: 400px !important;
         height: auto !important;
         display: block !important;
     }
