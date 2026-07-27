@@ -29,11 +29,11 @@ VIDEO_URL = "https://drive.google.com/file/d/171UVVbs3kwxcek2YbAPnChCXT5H4LezN/v
 MAPS_URL = "https://maps.app.goo.gl/ASSDb6szm8FLSJfZ7"
 WEB_URL = "https://www.postcargo.co"
 
-EMAIL = "vidal.urrego@postcargo.co"
-CEL_TEXTO = "311 565 3897"
-CEL_LINK = "+573115653897"
+EMAIL = "comercial@postcargo.co"
+CEL_TEXTO = "311 565 7737"
+CEL_LINK = "+573115657737"
 TEL_TEXTO = "(601)805 2591"
-TEL_LINK = "+576013001431"
+TEL_LINK = "+576018052591"
 DIRECCION = "Carrera 97 No. 24 C - 23 Bodega 10, Muelle Industrial 1 - Bogotá, Colombia"
 
 # =========================================================
