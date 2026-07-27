@@ -23,7 +23,7 @@ PERFIL_FALLBACK_URL = "https://placehold.co/400x400/1E3A8A/FFFFFF?text=V.U.&font
 
 NOMBRE = "Vidal Urrego Silva"
 CARGO = "Gerente General"
-TAGLINE = "Operador Logístico Especializado en Reexpediciones"
+TAGLINE = "Con Postcargo sus reexpediciones ya no son un problema"
 
 VIDEO_URL = "https://drive.google.com/file/d/171UVVbs3kwxcek2YbAPnChCXT5H4LezN/view?usp=sharing"
 MAPS_URL = "https://maps.app.goo.gl/ASSDb6szm8FLSJfZ7"
@@ -98,8 +98,8 @@ st.markdown(
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 90px;
+        margin-bottom: 90px;
     }
 
     /* ---- Logo corporativo súper pequeño ---- */
@@ -248,7 +248,7 @@ st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True
 
 st.markdown(
     """
-    <p class="pc-servicios">📦 Paqueteo de Trayecto Espacial &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
+    <p class="pc-servicios">📦 Paqueteo de Trayecto Especial &nbsp;·&nbsp; ⚙️ Operaciones Especiales</p>
     """,
     unsafe_allow_html=True,
 )
@@ -284,4 +284,4 @@ st.divider()
 # =========================================================
 st.info("🌎 **Cobertura Nacional e Internacional**")
 
-st.markdown("<p class='pc-footer-note'>PostCargo SAS</p>", unsafe_allow_html=True)
+st.markdown("<p class='pc-footer-note'>PostCargo S.A.S</p>", unsafe_allow_html=True)
