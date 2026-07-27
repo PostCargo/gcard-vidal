@@ -6,7 +6,7 @@ import os
 # CONFIGURACIÓN DE PÁGINA
 # =========================================================
 st.set_page_config(
-    page_title="Vidal Urrego Silva | PostCargo SAS",
+    page_title="PostCargo SAS",
     page_icon="📦",
     layout="centered",
     initial_sidebar_state="collapsed",
@@ -18,8 +18,6 @@ st.set_page_config(
 LOGO_PATH = "Logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
-NOMBRE = "Vidal Urrego Silva"
-CARGO = "Gerente General"
 TAGLINE = "Con Postcargo sus reexpediciones ya no son un problema"
 
 VIDEO_URL = "https://drive.google.com/file/d/171UVVbs3kwxcek2YbAPnChCXT5H4LezN/view?usp=sharing"
@@ -87,20 +85,6 @@ st.markdown(
     }
 
     /* ---- Bloques de texto centrados ---- */
-    .pc-nombre {
-        text-align: center;
-        color: #FFFFFF;
-        font-size: 26px;
-        font-weight: 700;
-        margin: 14px 0 0 0;
-    }
-    .pc-cargo {
-        text-align: center;
-        color: #D8DEE9;
-        font-size: 17px;
-        font-weight: 500;
-        margin: 2px 0 10px 0;
-    }
     .pc-tagline {
         text-align: center;
         color: #E5E7EB;
@@ -173,16 +157,16 @@ st.markdown(
         transition: all 0.2s ease-in-out !important;
     }
 
-    /* ---- Botones destacados en Blanco (Presentación y Negocios) ---- */
+    /* ---- Botones destacados en Blanco con texto Azul Oscuro (Negocios y Presentación) ---- */
     .pc-btn-destacado div.stLinkButton > a {
         background-color: #FFFFFF !important;
-        color: #0A1F44 !important;
+        color: #07142b !important;
         border: 1px solid #FFFFFF !important;
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     }
     .pc-btn-destacado div.stLinkButton > a:hover {
         background-color: #E5E7EB !important;
-        color: #07142b !important;
+        color: #0A1F44 !important;
         border-color: #E5E7EB !important;
     }
 
@@ -223,7 +207,7 @@ logo_src = obtener_src_imagen(LOGO_PATH, LOGO_FALLBACK_URL)
 
 
 # =========================================================
-# 1. CABECERA CON LOGO Y DATOS PERSONALES
+# 1. CABECERA CON LOGO
 # =========================================================
 st.markdown(
     f"""
@@ -234,29 +218,26 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(f"<p class='pc-nombre'>{NOMBRE}</p>", unsafe_allow_html=True)
-st.markdown(f"<p class='pc-cargo'>{CARGO}</p>", unsafe_allow_html=True)
-
 st.divider()
 
 # =========================================================
-# 2. PRESENTACIÓN CORPORATIVA, NEGOCIOS Y SERVICIOS
+# 2. BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
 # =========================================================
-# Botón 1: Presentación Corporativa (Destacado blanco)
-st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
-st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
-
-st.write("")
-
-# Botón 2: Negocios (Destacado blanco)
+# Botón Principal: Negocios (Destacado blanco con texto azul)
 st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
 st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
-# Texto del tagline y servicios (Ubicado debajo de los botones de presentación)
+# Botón Secundario: Presentación Corporativa (Destacado blanco con texto azul)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
+st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("")
+
+# Texto del tagline y servicios
 st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True)
 
 st.markdown(
