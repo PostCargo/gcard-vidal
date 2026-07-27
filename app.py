@@ -234,7 +234,7 @@ st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
 st.write("")
 
 # Botón Secundario: Presentación Corporativa
-st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
+st.link_button("🎥⏯️ Presentación Corporativa", VIDEO_URL, use_container_width=True)
 
 st.write("")
 
