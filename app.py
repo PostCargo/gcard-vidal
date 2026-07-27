@@ -104,7 +104,7 @@ st.markdown(
 
     /* ---- Logo corporativo súper pequeño ---- */
     .pc-logo-wrap img {
-        max-width: 170px !important;
+        max-width: 190px !important;
         height: auto !important;
         display: block !important;
     }
@@ -282,6 +282,6 @@ st.divider()
 # =========================================================
 # 5. CIERRE
 # =========================================================
-st.info("🌎 **Cobertura Nacional e Internacional**")
+st.info("🌎 **Cobertura Nacional**")
 
 st.markdown("<p class='pc-footer-note'>PostCargo S.A.S</p>", unsafe_allow_html=True)
