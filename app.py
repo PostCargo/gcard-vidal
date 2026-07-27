@@ -259,8 +259,6 @@ st.markdown(
     f"""
     <p class="pc-contact-item">📧&nbsp;&nbsp;E-Mail: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     <p class="pc-contact-item">📱&nbsp;&nbsp;Cel: <a href="tel:{CEL_LINK}">{CEL_TEXTO}</a></p>
-    <p class="pc-contact-item">☎️&nbsp;&nbsp;Tel: <a href="tel:{TEL_LINK}">{TEL_TEXTO}</a></p>
-    <p class="pc-contact-item">🏙️&nbsp;&nbsp;Bogotá - Colombia</p>
     <p class="pc-contact-item">🌐&nbsp;&nbsp;Web: <a href="{WEB_URL}" target="_blank">www.postcargo.co</a></p>
     <p class="pc-contact-item">📍&nbsp;&nbsp;Dirección: <a href="{MAPS_URL}" target="_blank">{DIRECCION}</a></p>
     """,
