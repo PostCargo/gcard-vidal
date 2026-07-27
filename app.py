@@ -149,36 +149,37 @@ st.markdown(
         color: #FFFFFF !important;
     }
 
-    /* ---- Estilos generales de botones de enlace ---- */
-    div.stLinkButton > a {
+    /* =========================================================
+       FORZADO DE BOTONES BLANCOS CON TEXTO AZUL OSCURO
+       ========================================================= */
+    div[data-testid="stLinkButton"] a,
+    div[data-testid="stLinkButton"] button,
+    .stLinkButton a {
+        background-color: #FFFFFF !important;
+        background: #FFFFFF !important;
+        color: #07142b !important;
+        border: 2px solid #FFFFFF !important;
         border-radius: 8px !important;
-        font-weight: 600 !important;
+        font-weight: 700 !important;
         padding: 0.75rem 1rem !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
         transition: all 0.2s ease-in-out !important;
     }
 
-    /* ---- Botones destacados en Blanco con texto Azul Oscuro (Negocios y Presentación) ---- */
-    .pc-btn-destacado div.stLinkButton > a {
-        background-color: #FFFFFF !important;
+    /* Cambia todos los textos e iconos dentro del botón a azul oscuro */
+    div[data-testid="stLinkButton"] a *,
+    div[data-testid="stLinkButton"] button * {
         color: #07142b !important;
-        border: 1px solid #FFFFFF !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    }
-    .pc-btn-destacado div.stLinkButton > a:hover {
-        background-color: #E5E7EB !important;
-        color: #0A1F44 !important;
-        border-color: #E5E7EB !important;
+        fill: #07142b !important;
     }
 
-    /* ---- Botones estándar/secundarios ---- */
-    div.stLinkButton > a {
-        background-color: rgba(255,255,255,0.08) !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(255,255,255,0.2) !important;
-    }
-    div.stLinkButton > a:hover {
-        background-color: rgba(255,255,255,0.15) !important;
-        border-color: rgba(255,255,255,0.4) !important;
+    /* Estado Hover / Al pasar el mouse o tocar en móvil */
+    div[data-testid="stLinkButton"] a:hover,
+    div[data-testid="stLinkButton"] button:hover {
+        background-color: #E2E8F0 !important;
+        background: #E2E8F0 !important;
+        border-color: #E2E8F0 !important;
+        color: #0A1F44 !important;
     }
     </style>
     """,
@@ -223,17 +224,13 @@ st.divider()
 # =========================================================
 # 2. BOTONES DESTACADOS (NEGOCIOS Y PRESENTACIÓN)
 # =========================================================
-# Botón Principal: Negocios (Destacado blanco con texto azul)
-st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
+# Botón Principal: Negocios
 st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
-# Botón Secundario: Presentación Corporativa (Destacado blanco con texto azul)
-st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
+# Botón Secundario: Presentación Corporativa
 st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
-st.markdown('</div>', unsafe_allow_html=True)
 
 st.write("")
 
@@ -263,6 +260,8 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+st.write("")
 
 st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
 st.write("")
