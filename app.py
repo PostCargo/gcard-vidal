@@ -79,7 +79,7 @@ st.markdown(
 
     /* ---- Logo corporativo ampliado ---- */
     .pc-logo-wrap img {
-        max-width: 400px !important;
+        max-width: 280px !important;
         height: auto !important;
         display: block !important;
     }
@@ -89,7 +89,7 @@ st.markdown(
         text-align: center;
         color: #E5E7EB;
         font-style: italic;
-        font-size: 40px;
+        font-size: 15px;
         padding: 0 6px;
         margin: 10px 0;
     }
@@ -99,7 +99,7 @@ st.markdown(
         background-color: rgba(255,255,255,0.06);
         padding: 12px;
         border-radius: 10px;
-        font-size: 40px;
+        font-size: 14.5px;
         margin-top: 10px;
     }
     
@@ -122,11 +122,13 @@ st.markdown(
         margin: 8px 0;
     }
 
+    /* ---- Pie de página discreto ---- */
     .pc-footer-note {
         text-align: center;
         color: #6B7A99;
-        font-size: 12px;
-        margin-top: 12px;
+        font-size: 10.5px;
+        margin-top: 18px;
+        line-height: 1.4;
     }
 
     /* ---- Enlaces de texto ---- */
@@ -153,6 +155,7 @@ st.markdown(
         font-weight: 700 !important;
         padding: 0.85rem 1rem !important;
         box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+        font-size: 18px !important; /* Ajuste del tamaño de letra */
         transition: all 0.2s ease-in-out !important;
     }
 
@@ -161,6 +164,7 @@ st.markdown(
     div[data-testid="stLinkButton"] button * {
         color: #07142b !important;
         fill: #07142b !important;
+        font-size: 18px !important; /* Ajuste del tamaño del texto e icono */
     }
 
     /* Estado Hover / Al pasar el mouse o tocar en móvil */
@@ -237,7 +241,7 @@ st.markdown(
 st.divider()
 
 # =========================================================
-# 3. DATOS DE CONTACTO (Todo integrado en texto)
+# 3. DATOS DE CONTACTO
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
@@ -246,6 +250,7 @@ st.markdown(
     <p class="pc-contact-item">📧&nbsp;&nbsp;E-Mail: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
     <p class="pc-contact-item">📱&nbsp;&nbsp;Cel: <a href="tel:{CEL_LINK}">{CEL_TEXTO}</a></p>
     <p class="pc-contact-item">☎️&nbsp;&nbsp;Tel: <a href="tel:{TEL_LINK}">{TEL_TEXTO}</a></p>
+    <p class="pc-contact-item">🏙️&nbsp;&nbsp;Bogotá - Colombia</p>
     <p class="pc-contact-item">🌐&nbsp;&nbsp;Web: <a href="{WEB_URL}" target="_blank">www.postcargo.co</a></p>
     <p class="pc-contact-item">📍&nbsp;&nbsp;Dirección: <a href="{MAPS_URL}" target="_blank">{DIRECCION}</a></p>
     """,
@@ -257,4 +262,12 @@ st.divider()
 # =========================================================
 # 4. CIERRE
 # =========================================================
-st.markdown("<p class='pc-footer-note'>PostCargo S.A.S</p>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <p class='pc-footer-note'>
+        Desarrollado por Sergio Muñoz<br>
+        © Propiedad exclusiva de PostCargo S.A.S. Todos los derechos reservados.
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
