@@ -18,14 +18,12 @@ st.set_page_config(
 LOGO_PATH = "Logo.png"
 LOGO_FALLBACK_URL = "https://placehold.co/600x220/0A1F44/FFFFFF?text=PostCargo+SAS&font=raleway"
 
-PERFIL_PATH = "vidal_urrego.jpeg"
-PERFIL_FALLBACK_URL = "https://placehold.co/400x400/1E3A8A/FFFFFF?text=V.U.&font=raleway"
-
 NOMBRE = "Vidal Urrego Silva"
 CARGO = "Gerente General"
 TAGLINE = "Con Postcargo sus reexpediciones ya no son un problema"
 
 VIDEO_URL = "https://drive.google.com/file/d/171UVVbs3kwxcek2YbAPnChCXT5H4LezN/view?usp=sharing"
+NEGOCIOS_URL = "https://www.postcargo.co/negocios/"
 MAPS_URL = "https://maps.app.goo.gl/ASSDb6szm8FLSJfZ7"
 WEB_URL = "https://www.postcargo.co"
 
@@ -37,7 +35,7 @@ TEL_LINK = "+576018052591"
 DIRECCION = "Carrera 97 No. 24 C - 23 Bodega 10, Muelle Industrial 1 - Bogotá, Colombia"
 
 # =========================================================
-# ESTILOS (CSS mínimo con Degradado Diagonal Corporativo)
+# ESTILOS (CSS)
 # =========================================================
 st.markdown(
     """
@@ -71,40 +69,19 @@ st.markdown(
         font-size: 15.5px;
     }
 
-    /* ---- Contenedor para centrar la foto de perfil ---- */
-    .pc-perfil-wrap {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
-
-    /* ---- Foto de perfil circular y centrada ---- */
-    .pc-perfil-wrap img {
-        width: 260px !important;
-        height: 260px !important;
-        object-fit: cover !important;
-        border-radius: 50% !important;
-        border: 4px solid #E5E7EB !important;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
-        display: block !important;
-    }
-
     /* ---- Contenedor para centrar el logo corporativo ---- */
     .pc-logo-wrap {
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 3px;
-        margin-bottom: 3px;
+        margin-top: 15px;
+        margin-bottom: 10px;
     }
 
-    /* ---- Logo corporativo súper pequeño ---- */
+    /* ---- Logo corporativo ampliado ---- */
     .pc-logo-wrap img {
-        max-width: 190px !important;
+        max-width: 280px !important;
         height: auto !important;
         display: block !important;
     }
@@ -130,7 +107,7 @@ st.markdown(
         font-style: italic;
         font-size: 15px;
         padding: 0 6px;
-        margin: 0;
+        margin: 10px 0;
     }
     .pc-servicios {
         text-align: center;
@@ -188,14 +165,32 @@ st.markdown(
         color: #FFFFFF !important;
     }
 
-    /* ---- Botones ---- */
+    /* ---- Estilos generales de botones de enlace ---- */
     div.stLinkButton > a {
         border-radius: 8px !important;
         font-weight: 600 !important;
+        padding: 0.75rem 1rem !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    /* ---- Botones destacados en Blanco (Presentación y Negocios) ---- */
+    .pc-btn-destacado div.stLinkButton > a {
+        background-color: #FFFFFF !important;
+        color: #0A1F44 !important;
+        border: 1px solid #FFFFFF !important;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+    }
+    .pc-btn-destacado div.stLinkButton > a:hover {
+        background-color: #E5E7EB !important;
+        color: #07142b !important;
+        border-color: #E5E7EB !important;
+    }
+
+    /* ---- Botones estándar/secundarios ---- */
+    div.stLinkButton > a {
         background-color: rgba(255,255,255,0.08) !important;
         color: #FFFFFF !important;
         border: 1px solid rgba(255,255,255,0.2) !important;
-        padding: 0.75rem 1rem !important;
     }
     div.stLinkButton > a:hover {
         background-color: rgba(255,255,255,0.15) !important;
@@ -211,11 +206,6 @@ st.markdown(
 # FUNCIÓN AUXILIAR: Obtiene la ruta de imagen o base64
 # =========================================================
 def obtener_src_imagen(ruta_local, url_respaldo):
-    """
-    Intenta leer el archivo local y codificarlo en Base64 para cargarlo de forma
-    segura y rápida sin depender de rutas rotas en el servidor.
-    Si falla, retorna la URL de respaldo.
-    """
     try:
         if os.path.exists(ruta_local):
             with open(ruta_local, "rb") as f:
@@ -228,31 +218,13 @@ def obtener_src_imagen(ruta_local, url_respaldo):
     return url_respaldo
 
 
-# --- Cargar imágenes en memoria ---
-foto_src = obtener_src_imagen(PERFIL_PATH, PERFIL_FALLBACK_URL)
+# --- Cargar logo en memoria ---
 logo_src = obtener_src_imagen(LOGO_PATH, LOGO_FALLBACK_URL)
 
 
 # =========================================================
-# 1. FOTO DE PERFIL — CABECERA (Centrado Absoluto Asegurado)
+# 1. CABECERA CON LOGO Y DATOS PERSONALES
 # =========================================================
-st.markdown(
-    f"""
-    <div class="pc-perfil-wrap">
-        <img src="{foto_src}" alt="Vidal Urrego Silva">
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-# =========================================================
-# 2. INFORMACIÓN DE DON VIDAL & LOGO DEBAJO DE SU CARGO
-# =========================================================
-st.markdown(f"<p class='pc-nombre'>{NOMBRE}</p>", unsafe_allow_html=True)
-st.markdown(f"<p class='pc-cargo'>{CARGO}</p>", unsafe_allow_html=True)
-
-# Logo corporativo súper pequeño y perfectamente centrado abajo de "Gerente General"
 st.markdown(
     f"""
     <div class="pc-logo-wrap">
@@ -262,11 +234,29 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.markdown(f"<p class='pc-nombre'>{NOMBRE}</p>", unsafe_allow_html=True)
+st.markdown(f"<p class='pc-cargo'>{CARGO}</p>", unsafe_allow_html=True)
+
 st.divider()
 
 # =========================================================
-# 3. INFORMACIÓN CORPORATIVA
+# 2. PRESENTACIÓN CORPORATIVA, NEGOCIOS Y SERVICIOS
 # =========================================================
+# Botón 1: Presentación Corporativa (Destacado blanco)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
+st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("")
+
+# Botón 2: Negocios (Destacado blanco)
+st.markdown('<div class="pc-btn-destacado">', unsafe_allow_html=True)
+st.link_button("💼 Negocios", NEGOCIOS_URL, use_container_width=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
+st.write("")
+
+# Texto del tagline y servicios (Ubicado debajo de los botones de presentación)
 st.markdown(f"<p class='pc-tagline'>“{TAGLINE}”</p>", unsafe_allow_html=True)
 
 st.markdown(
@@ -276,14 +266,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.write("")
-
-st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
-
 st.divider()
 
 # =========================================================
-# 4. DATOS DE CONTACTO
+# 3. DATOS DE CONTACTO
 # =========================================================
 st.markdown("<p class='pc-section-title'>Contacto</p>", unsafe_allow_html=True)
 
@@ -305,7 +291,7 @@ st.link_button(f"📍 {DIRECCION}", MAPS_URL, use_container_width=True)
 st.divider()
 
 # =========================================================
-# 5. CIERRE
+# 4. CIERRE
 # =========================================================
 st.info("🌎 **Cobertura Nacional**")
 
