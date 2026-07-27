@@ -98,8 +98,8 @@ st.markdown(
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: 90px;
-        margin-bottom: 90px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     /* ---- Logo corporativo súper pequeño ---- */
