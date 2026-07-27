@@ -161,6 +161,16 @@ st.markdown(
         margin: 8px 0;
     }
 
+    /* ---- Centrado de la caja st.info / Cobertura Nacional ---- */
+    div[data-testid="stAlert"] {
+        text-align: center !important;
+        justify-content: center !important;
+    }
+    div[data-testid="stAlert"] > div {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
     .pc-footer-note {
         text-align: center;
         color: #6B7A99;
@@ -185,7 +195,7 @@ st.markdown(
         background-color: rgba(255,255,255,0.08) !important;
         color: #FFFFFF !important;
         border: 1px solid rgba(255,255,255,0.2) !important;
-        padding: 0.75rem 1rem !important; /* Añadido un poco de espacio interno extra para botones más grandes */
+        padding: 0.75rem 1rem !important;
     }
     div.stLinkButton > a:hover {
         background-color: rgba(255,255,255,0.15) !important;
@@ -268,7 +278,6 @@ st.markdown(
 
 st.write("")
 
-# ELIMINADAS LAS COLUMNAS PARA QUE EL BOTÓN OCUPE TODO EL ANCHO DISPONIBLE
 st.link_button("🎥 Presentación Corporativa", VIDEO_URL, use_container_width=True)
 
 st.divider()
@@ -288,7 +297,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# ELIMINADAS LAS COLUMNAS PARA MANTENER LA SIMETRÍA VISUAL
 st.link_button("🌐 www.postcargo.co", WEB_URL, use_container_width=True)
 st.write("")
 
